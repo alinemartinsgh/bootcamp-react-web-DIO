@@ -1,0 +1,18 @@
+Estória é um conjunto de tarefas, sempre nível de negócio
+Épico é um conjunto de estórias
+Tarefa conjunto de atividades que o time de desenvolvimento deve desempenhar para entregar a estória
+
+Modelo de estória
+-> nome da estória
+-> descrição da estória(eu, como, quero, quando)
+-> regras de negócio(separar regras de front-end e regras de back-end)
+-> tela(link ou imagem das telas a serem desenvolvidas)
+-> KPI(quais objetivos/valor a estória precisa atingir)
+-> tagueamento(como a estória será "tagueada" para poder mensurar os KPI's)
+-> critérios de aceite(qual o passo a passo de todos os caminhos felizes possíveis a estória deve cumprir para que ela seja considerada aceita)
+
+** Critério de aceite (lista de critérios para que a estória atenda aos requisitos do cliente)
+-> é uma lista de critérios que precisam ser alcançados para que a User Story atenda os requisitos do usuário e seja aceita pelo Product Owner
+-> os critérios de aceitação têm o objetivo de:
+  - definir limites para as user stories
+  - ajudar o PO a detalhar em alto nível o que é necessário para entregar valor ao cliente

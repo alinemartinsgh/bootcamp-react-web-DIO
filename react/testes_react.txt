@@ -1,0 +1,122 @@
+* TDD e BDD com Jest
+
+TDD -> Test-Driven Development(Teste unitário / Teste End-to-End(E2E))
+  - Antecipar erros a nível de desenvolvimento: teste escrito antes da funcionalidade
+  - Não descarta a presença de um tester
+  - Usa Jasmine: https://jasmine.github.io/
+
+  Ciclo de Vida
+  Escreve um teste que falha (RED) -> Cria a função que que vai dar certo (GREEN) -> Elimina as redundâncias no código e desenvolve a lógica(REFACTOR)
+
+  Ex.:
+
+  - TESTE EM FUNÇÃO
+
+  import { soma } from './soma';
+
+  describe('testando função soma', () => {
+    it('A soma deve dar 3', () => {
+      const res = soma(1, 2);
+      expect(res).toBe(3)
+    })
+  })
+
+  - TESTE EM COMPONENTE
+    * react-testing-Library (yarn add --dev @testing-library/react) e para extensões de comparação no jest (yarn add --dev @testing-library/jest-dom/extend-expect)
+  
+  -> COMPONENTE
+
+  import React from 'react';
+
+  const Basic = (props) => (
+    <p>Meu nome é {props.nome}</p>
+  )
+
+  export default Basic;
+
+  -> TESTE
+
+  import React from 'react';
+  import Basic from './Basic';
+  import { render } from '@testing-library/react';
+  import '@testing-library/jest-dom/extend-expect';
+
+
+  describe('Testando Basic', () => {
+    it('O componente Basic deve renderizar corretamente', () => {
+      const { baseElement } = render(<Basic name='Lilith'/>);
+      expect(baseElement).toHaveTextContent('Meu nome é Lilith');
+    })
+  })
+
+
+  Principais libs: Jest(já vem com o create-react-app), React-testing-Library, Shallow, Enzyme, Chai, Mocha, Selenium, Puppeteer
+
+BDD -> Behavior-Driven Development
+  - Teste de especificação
+    -> Une especificação, teste automatizado e premissa de teste(documento de teste)
+  - Sintaxe de steps para definir cenários
+  - Descreve cada funcionalidade por feature(caso de uso)
+
+  Principais libs: Jest-cucumber - tem extensão no VSCODE (extensão do Jest yarn add --dev jest-cucumber), Chai
+
+Ex.:
+
+-> # language: pt-br
+Funcionalidade: Login
+  Texto com a descrição da funcionalidade
+
+Cenário: Como um usuário válido, posso logar no sistema
+  Dado que estou na tela de Login 
+  Quando digitar credenciais válidas
+  E clicar no botão de login
+  Então devo acessar a Home do sistema
+
+Cenário: Como usuário inválido, devo visualizar uma mensagem de erro e continuar na página de Login
+  Dado que estou na tela de Login
+  Quando digitar credenciais inválidas
+  E clicar no botão login
+  Então devo ver uma mensagem de erro
+  E devo estar na tela de Login
+
+-> função de SOMA 
+Feature: Somar um Par 
+  Soma um par de números
+
+Scenario: soma 1 + 2 resulta em 3
+  Given 1
+  When soma 2
+  Then a soma é 3
+
+arquivo soma.test.js
+
+import { soma } from './soma'
+import { defineFeature, loadFeature } from 'jest-cucumber'
+
+const feature = loadFeature('./scr/aula-4/parte-1/components/soma/soma.feature')
+
+describe('testando função soma', () => {
+  it('A soma deve dar 3', () => {
+    const res = soma(1, 2)
+    expect(res).toBe(3)
+  })
+})
+
+defineFeature(feature, test => {
+  test('soma 1 + 2 resulta em 3', ({ given, when, then }) => {
+    let x;
+    let z;
+
+    given('1', () => {
+      x = 1;
+    });
+
+    when('soma 2', () => {
+      z = soma(x, 2);
+    });
+
+    then('a soma é 3', () => {
+      expect(z).toBe(3)
+    });
+  });
+});

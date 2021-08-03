@@ -1,0 +1,5 @@
+https://github.com/khaosdoctor/promises-talk/blob/master/README-pt.md
+
+https://github.com/khaosdoctor/promises-talk/blob/master/README.md
+
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Using_promises

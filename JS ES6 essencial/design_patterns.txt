@@ -1,0 +1,98 @@
+** Design Patterns ** 
+-> padrões de projetos são soluções generalistas para problemas recorrentes durante o desenvolvimeno de um software. Não se trata de um framework ou um código pronto, mas de uma definição de alto nível de como um problema comum pode ser solucionado. Surgiu em 1978 com o livro "A Pattern Language" (Christopher Alexander, Sara Ishikawa, Murray Silvertein), onde foram detalhados 253 tipos de problemas / desafios de projetos.
+
+Formato:
+  - Nome
+  - Exemplo
+  - Contexto
+  - Problema
+  - Solução
+
+Em 1987, na palestra "Using Patterns Language for Object-Oriented Programs", Kent Beck(responsável pela criação do extreme program e TDD) e Ward Cunningham apresentaram 5 padrões de projetos. Em 1994, GoF(Gang of Four - Erich Gamma, Richard Helm, Ralph Johnson e John Vlissides) escreveram o livro "Design Patterns: Elements of Reusable Object-Oriented Software". No livro, os design patterns são classificados em 3 tipos: criação, estruturais e comportamentais.
+
+-> Padrões de criação
+  - São aqueles que abstraem e/ou adiam o processo de criação dos objetos. Eles ajudam a tornar um sistema independente de como seus objetos são criados, compostos e representados.
+  * Abstract Factory
+  * Builder
+  * Factory Method
+  * Prototype
+  * Singleton
+
+-> Padrões estruturais
+  - Se preocupam com a forma como classes e objetos são compostos para formar estruturas maiores.
+  * Adapter
+  * Bridge
+  * Composite
+  * Decorator
+  * Facade
+  * Business Delegate
+  * Flyweight
+  * Proxy
+
+-> Padrões comportamentais
+  - Se concentram nos algoritmos e atribuições de responsabilidades entre os objetos. Eles não descrevem apenas padrões de objetos ou de classes, mas também os padrões de comunicação entre os objetos.
+  * Chain of Responsability
+  * Command
+  * Interpreter
+  * Iterator
+  * Mediator
+  * Observer
+  * State
+  * Strategy
+  * Template Method
+  * Visitor
+
+  ** Padrões mais utilizados no JS
+  
+  - Factory
+    -> todas as chamadas que retornam um objeto, sem a necessidade de usar o comando NEW, são consideradas funções Factory. 
+
+  - Singleton
+    -> o objeto desse pattern é criar uma única instância de uma função construtora e retorná-la toda vez em que for necessário utilizá-la. Um exemplo popular é o JQuery
+
+  - Decotator
+    -> uma função decorator recebe uma outra função como parâmetro e estende o seu comportamento sem modificá-la explicitamente. Um exemplo popular é o Typescript (https://www.typescriptlang.org/docs/handbook/decorators.html)
+
+    // Exemplo de DECORATOR com sintaxe de decorator
+
+    function readonly(target, name, descriptor) {
+      descriptor.writable = false;
+      return descriptor
+    }
+    
+    class Job {
+      @readonly
+      title() { return 'CEO' }
+    }
+    ____________________________________
+
+    @Component({
+      selector: 'app-reactive-favorite-color',
+      template: `
+      Favorite Color: <input type="text" [formControl]="favoriteColorControl">`
+    })
+
+    export class favoriteColorComponent {
+      favoriteColorControl = new FormControl('');
+    }
+
+  - Observer
+    -> muito popular em aplicações javascript. A instância(subscriber) mantém uma coleção de objetos(observers) e notifica todos eles quando ocorrem mudanças de estado. Exemplos comuns: Vue e RxJs
+
+  - Module
+    -> é um pattern que possibilita organizar melhor o nosso código, sem a necessidade de expor variáveis globais.
+
+    // Exemplo
+
+    class Person {
+      constructor(name){
+        this.name = name;
+      }
+    }
+
+    export default Person;
+
+    ** no arquivo que você quer utilizar Person
+    import Person from './enderecoPerson'
+
+

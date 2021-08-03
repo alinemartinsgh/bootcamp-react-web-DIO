@@ -1,0 +1,75 @@
+Dados: conjunto de valores que descrevem uma ocorrência
+
+Modelo Sustentável
+  - Estruturação
+  - Durabilidade
+  - Velocidade
+  - Controle de acesso
+  - Isolamento
+
+Abstração - pegar o que está armazenado fisicamente e mostrar para o usuário
+
+SGDBs(RDBMS) - sistema de gerenciamento de banco de Dados 
+
+  - Linguagem de definição (define a estrutura) - DDL(data definition language)
+  - Linguagem de manipulação (manipula os dados) - DML(data manipulation language) / DQL(data query language)
+  - Dicionários de dados
+
+** Modelo Flat **
+- tabela
+
+** Modelo Hierárquico **
+- árvore
+
+** Modelo Relacional ** mais utilizado
+-  conjunto de tabelas do modelo Flat que se relacionam
+
+Outros modelos
+ - Redes - Grapho
+ - Orientado a objetos
+ - Objeto Relacional
+ - Big Data
+
+
+** Banco de Dados Relacional ** 
+Regitros ou Tuplas: linhas com as informações
+Colunas: significado da informação contida nas linhas 
+Chave PK: torna um registro único
+Chave FK: herança da chave primária, cria o relacionamento entre as instâncias 
+
+Modelo Conceitual - MER
+-> Abstração Conceitual, pode ser representado pelo modelo diagrama-relacionamento
+Entidade Forte: não necessitam de nenhuma outra entidade para existir
+Entidade Fraca: depende de outras para existir, por exemplo uma venda precisa de produtos e clientes para acontecer
+Entidade Associativa: em relações de muitos para muitos
+Análise de normalização: para definir melhores práticas de gerenciamento dos dados
+
+Modelo Lógico
+-> Implementação
+
+DDL
+   - create Table nomedatabela
+   - insert into nomedatabela
+   - delete from nomedatabela
+   - update nomedatabela
+
+DQL
+  - select
+
+
+  Transactions
+
+  Inicio: insert/ update/ delete -> Resolução: commit(é o que confirma as alterações)/ rollback(quando desiste ou não aplica a operação) -> Fim: dados novos(commit) / dados originais(rollback)
+  
+  A - atomicidade: todas as operações realizadas com sucesso (commit ou rollback);
+  C - consistência: unicidade de chaves, restrições de integridade lógica, etc
+  I - isolamento: várias transações podem acessar simultaneamente no mesmo registro ou parte do registro
+  D - durabilidade: depois do commit, mesmo com erros, queda de energia, as alterações devem ser aplicadas
+
+  Oracle
+  Microsoft SQL Server
+  DB2 IBM
+
+  PostgreeSQL
+  MySQL
+  SQLite

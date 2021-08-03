@@ -1,0 +1,46 @@
+Algoritmo => sequência de passos para resolver um problema;
+
+Pseudocódigo => forma genérica de escrever um algoritmo utilizando uma linguagem simples;
+
+Fluxograma => representa graficamente o algoritmo;
+
+Variável => espaço na memória do computador. Podem ser numéricos, caracteres, alfanuméricos e lógicos;
+
+Constante => variável cujo valor não muda;
+
+Expressões aritméticas => ex.: 50 + 50 // total + 50;
++ Soma
+- Subtração
+* Multiplicação
+/ Divisão
+^ Potenciação
+% Porcentagem
+
+Expressões literais => ex.: nome = "João da Silva" // nome <-"José da Silva";
+
+Expressões relacionais => retornam true ou false;
+> maior que
+>= maior ou igual
+< menor que
+<= menor ou igual
+== igualdade
+!= diferente de
+
+Tomadas de decisão => necessidade de tomada de decisão de acordo com uma condição;
+
+Concatenação => unir o conteúdo de duas strings;
+
+Estruturas de repetição => estruturas que permitem executar mais de uma vez o mesmo comando ou um conjunto de comandos, de acordo com uma condição ou contador;
+
+Linguagem de programação => linguagem escrita e formal que especifica um conjunto de instruções e regras usadas para gerar programas(softwares);
+
+Linguagens de alto nível => mais próxima da nossa linguagem;
+Linguagens de baixo nível => mais próxima da linguagem de máquina. Precisa ter conhecimento da arquitetura do computador para poder executar;
+
+Linguagens compiladas => código fonte é executado diretamente no sistema operacional ou pelo processados, após ser traduzido por meio de um processo chamado compilação;
+Linguagens interpretadas => código fonte é executado por um programa de computador chamado interpretador, que em seguida é executado pelo sistema operacional ou processador;
+
+matriz => coleção de varáveis do mesmo tipo, acessíveis com um único nome cuja individualização é feita através de índices;
+vetor => matrizes de uma dimensão;
+
+Portugol => pseudolinguagem que permite ao leitor desenvolver algoritmos estruturados em português de forma simples e intuitiva, sem depender de linguagem de programação;

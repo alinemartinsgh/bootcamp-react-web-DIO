@@ -1,0 +1,13 @@
+Passo a passo
+
+-> Criar pastas e inicializar um projeto através do yarn
+-> Instalar o react e sua base de bibliotecas
+-> Configurar um transpilador (babel)
+-> Configurar um dev server(webpack)
+-> Criar scripts
+-> Criar área para testar a biblioteca
+-> Testar a biblioteca
+-> Publicar a biblioteca
+
+
+https://github.com/andrelmlins/react-input-por-extenso

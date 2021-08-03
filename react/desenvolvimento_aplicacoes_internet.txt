@@ -1,0 +1,231 @@
+https://github.com/eduardogc/digital-one-react-intermediario
+
+* Estilização de componentes no react
+-> Inline
+
+Prós
+ - Maneira mais rápida e direta
+ - Ajustes rápidos
+ - Testes de estilo
+
+Contras
+  - Difícil manutenção
+
+ex.: 
+
+const divStyle = {
+  color: 'blue',
+  backgroundImage: 'url(' + imgUrl + ')'
+};
+
+function HelloWordlComponent(){
+  return <div style={divStyle}>Hello World!</div>
+}
+
+OU
+
+function App(){
+  return (
+    <HelloWordlComponent style={{marginTop: '10px'}}/>
+  )
+}
+
+-> Classes
+Arquivo externo .css
+
+.div-style{
+  color: 'blue',
+  background: 'black'
+}
+
+é necessário importar o Arquivo para utilizar
+
+Prós
+ - Maneira mais prática e direta
+
+Contras
+  - Difícil manutenção
+  - Pouca flexibilidade
+  - Conflitos com nomes 
+
+-> CSS in JS
+
+Styled componentes
+npm i --save styled-components
+
+ex.:
+
+const DivStyle = styled.div`
+  color: blue;
+  background: url('${props => props.imageUrl}');
+`
+
+function HelloWordlComponent(){
+  const url 'http://bit.ly/2L8xxHz';
+  return <DivStyle imageUrl= {url}>Hello</DivStyle>
+}
+
+Prós
+ - Manutenção
+    -- Facilidade para remover CSS
+    -- Estilos dinâmicos
+  - Performance
+  - Injeção automática de prefixos vendor(webkit...)
+
+Contras
+  - Difícil manutenção
+  - Pouca flexibilidade
+  - Conflitos com nomes 
+
+
+* Stateful x Stateless
+
+-> Stateful: usa estados
+  - possui gerenciamento de estados no componente
+  - contruídos usando classes em JS(na definição de stategful)
+  - ciclo de vida
+
+
+-> Stateless: não usa estados
+  - não possui gerenciamento de estados no componente
+  - construídos usando funções em JS
+
+-> Exemplo de Stateful component com hooks
+
+import React, {useState} from 'react';
+
+cont TodoListFunctional = () => {
+
+  const [items, setItems] = useState(['Tomate', 'Alface', 'Melancia'];)
+  const addItem = (item) => {
+    setItems([...items, item]);
+  }
+  
+  const removeItem = () => {
+    setItems([...items.slice(1)])
+  }
+  
+  return (
+    <div className="bloco-lista">
+    <p>Minha lista</p>
+    <ul className="lista-estilizada">
+    {items.map(item => <li>{item}</li>)}
+    </ul>
+    <button onClick={() => addItem('Abóbora')}>Add Item</button>
+    <button onClick={() => removeItem()}>Remove Item</button>
+  )
+}
+
+export default TodoListFunctional;
+
+
+Nomenclatura atualizada
+  - class components
+  - function components
+
+Com hooks, estados são manipulados em function components
+
+* Flux
+
+É um padrão de projetos para tráfego de dados de maneira unidimensional
+
+Action -> Dispatcher -> Store -> View
+
+- ACTION: formata a mensagem a ser enviada
+- DISPATCHER: sabe todos os callbacks da diferentes Stores
+- STORE: Guarda as informação e todas as alterações têm que ser feitas por ele mesmo, mais ninguém. Ele guarda e altera os estados
+- VIEW: Middleware - recebe as notificações da Store e passa os dados para as visões abaixo dela
+
+Implementações: servem para comunicação entre componentes. Centralizam a informação.
+* Redux (mais popular)
+* Reflux
+* Mobx
+* Vuex (baseado em Redux e Elm)
+* NgRx/store (baseada em Redux e RxJs) - Angular
+
+
+** REDUX **
+Criado por Dan Abramov e Andrew Clark em 2015. É uma implementação de Flux, mas possui algumas diferenças.
+
+- 3 Princípios
+-> Single source of truth: uma única store
+-> State é read-only
+-> Mudanças são feitas com pure functions
+
+ACTIONS são como o Flux
+  - diferença: actions não enviam a action em si para o dispatcher
+  - retornam um objeto de action formatado
+
+STORE
+  - Em flux: diversas stores
+  - Em redux: uma única store
+  - A STORE cuida de toda a árvore de estados 
+  - Os reducers que cuidam de descobrir qual estado muda
+
+REDUCERS (não tem dispatcher)
+  - a Store se conecta ao root reducer, que divide os estados em pequenos reducers para descobrir como lidar com esse estado
+  - os estados aqui são imutáveis
+
+REACT (Views)
+ Em react, adiciona na camada View 3 novos conceitos para conectar a View à Store:
+ 1. Provider - wrapper
+ 2. connect() 
+ 3. selector - função que define quais estados queremos passar como props
+
+* Rest HTTP com React
+
+Servem para conectar a um ou mais servidores HTTP
+  - GET
+  - POST
+  - DELETE
+  - PUT / PATCH
+  * Fetch API
+    -> Nativa do browser;
+    -> Oferece uma alternativa ao XMLHttpRequest() e jQuery.ajax()
+    -> Suporte a Service Workers
+    -> Diferenças: 
+        - não envia ou recebe cookies (precisa definir a opção credentials)
+        - não rejeirta o status do erro HTTP(só rejeita em caso de instabilidade de conexão)
+  * Axios
+    -> Liv de HTTP API
+    -> Cross-browser
+    -> Pode monitorar o progresso de um request 
+    -> Melhor tratamento de erros
+    -> Melhor teste
+
+* Imutabilidade
+  -> Uma vez criada, uma coleção não pode ser alterada
+  -> Novas coleções podem ser criadas a partir de uma coleção anterior e uma mutação(setter) como um conjunto
+  -> Novas coleções são criadas usando o máximo possível da estrutura original reduzindo a cópia e aumentando a performance 
+
+  Libs: Immutable / Immer // Immutablility-helper // Seamless-immutable
+
+  É um pré requisito no Redux
+    - Redux e React-Readux utilizam comparações rasas;
+    - Manipulação de dados mais segura
+    - Time-travel debugging
+  -> Os reducers dividem o objeto de estados em domínios por uma chave;
+  -> combineReducers checa mudanças usando comparação rasa 
+    1. Fazem a interação nos reducers
+    2. Criam um novo objeto de estados a partir dos estados retornados por cada reducer
+  -> connect gera componentes que fazem comparação rasa com o estado root
+  -> retornam o valor para a função mapStateToProps, verificando aqueles que precisam de uma operação de re-render
+
+* Redux + Rest
+-> Suponha um sistema de notificações ou um sistema de logging
+-> Você precisa manter a sincronia, independente da tela onde estiver
+-> Uma mandeira de resolver fácil seria armazenar os dados do serviço no Redux
+-> Provê uma cada entre o dispositivo de uma ação e o momento que ela atinge o reducer
+-> Utilizados para uma variedade de funções, entre elas chamadas de APIs de serviço 
+
+Diferenças do applyMiddleware() do Redux:
+  -> Só expõe um subconjunto da Store API para o middleware: dispatch e getState()
+  -> Fica difícil saber se store.dispatch(action) vai realmente percorrer a cadeia do middleware de novo
+  -> Opera em cima de createStore() ao invés do store em si
+
+Middlewares Redux mais usados
+
+- redux-thunk
+    -> um thunk é uma função que retorna outra função
+    
+- redux-saga

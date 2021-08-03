@@ -1,0 +1,93 @@
+* Conceitos básicos
+
+O que é ser ágil? 
+rapidez na mudança e desembaraço
+fazer coisas complexas de forma simples
+equipe comprometida com os Objetivos
+maior valor para o cliente
+- Ter capacidade de responder rapidamente as mudanças
+
+
+  -> Desafios do desenvolvimento de software
+    Objetivos de negócio
+
+    ** princípio de pareto: 20% das funcionalidades costumam gerar 80% do benefício esperado
+
+  -> Gestão de projetos tradicional(waterfall): só permite que o projeto avance quando uma fase está inteiramente completa. Ou seja, corre o risco de descobrir que estava errado depois de meses
+    - escopo definido na fase inicial do projeto(preditivo)  
+    - projeto é controlado por fases e macros
+    - cliente só vê o software funcionando na fase final
+    - resistência a mudanças
+
+  -> Gestão de projetos Ágil: software é construído por partes (incremental) e cada parte executa-se em um ciclo(iterativo). Descobre que estava errado em no máximo 30 dias
+    - escopo definido ao longo do projeto(adaptativo)
+    - projeto é controlado por funcionalidades entregues
+    - cliente pode ver parte do software funcionando na parte inicial do projeto
+    - mudanças constantes de acordo com feedbacks contínuos
+
+** SCRUM **
+- PILARES: transparência, adaptação e inspeção
+
+  -> um dos frameworks de gerenciamento de projetos ágeis
+  -> projetos usando equipes pequenas e multidisciplinares produzem os melhores resultados
+  -> conversar mais e escrever menos
+  -> demonstrar o software constantemente aos usuários e obter feedbacks constantes
+  -> requisitos mudam ao longo do tempo
+  -> aprender progressivamente com o uso do software
+
+  - Razões para adotar o SCRUM
+  -> desenvolvido e entregue em partes menores(2 a 4 semanas), com constante feedback dos usuários
+  -> melhor gerenciamento de riscos(redução de incertezas)
+  -> comprometimento, motivação e transparência da equipe (daily meeting)
+  -> maior valor para o negócio(priorização de backlog)
+  -> usuários envolvidos durante todo o ciclo
+  -> aplicações das lições aprendidas(melhoria contínua)
+
+  - Características do time SCRUM
+  -> equipes capazes de se auto-organizarem
+  -> tarefas são do time e todos são responsáveis
+  -> forte comprometimento com os resultados
+
+  MVP -> Minimum Viable Product
+
+* Papeis e responsabilidades de cada um do time
+
+- Product Owner(PO)
+  -> representa a área de negócios
+  -> PO não é um comitê
+  -> define as funcionalidades do software(Product Backlog)
+  -> prioriza as funcionalidades de acordo com o valor do negócio
+  -> garante que o time de dev entenda os itens do backlog no nível necessário
+
+- Scrum Master(SM)
+  -> garante o uso correto do Scrum
+  -> não é gerente de projetos
+  -> age como facilitador
+  -> auxilia o Product Owner no planejamento e estimativas do backlog
+  -> auxilia a equipe a remover impedimentos
+  -> treina o time em autogerenciamento e interdisciplinaridade
+
+- Time desenvolvimento(DEV)
+-> possui habilidades suficientes para desenvolver, testar, criar e desenhar, ou seja, tudo o que for necessário para entregar o software funcionando
+
+* Cerimônias do SCRUM
+
+Time Box: tempo máximo definido para fazer uma cerimônia ou sprint
+
+Sprint = principal evento do scrum (dura 30 dias corridos ou menos)
+  -> planejamento
+    - quem participa: PO, SM e DEV
+    - time box: 8h (sprint de 30 dias)
+    - nas 4 primeiras horas "O que fazer?"
+    - nas últimas 4h "como fazer?"
+  -> reuniões diárias(daily meeting): em pé
+    - quem participa: PO, SM e DEV
+    - time box: 15min
+    - o que fez ontem? o que está programado para o dia? há algum impedimento?
+  -> revisão da sprint(review)
+    - Time Dev apresenta para o PO o trabalho feito
+    - Time box: 4h (sprint de 30 dias)
+  -> retrospectiva da Sprint
+    - reunião da equipe para lições aprendidas 
+    - Time box: 3h (sprint de 30 dias)
+    - ocorre no último dia do sprint

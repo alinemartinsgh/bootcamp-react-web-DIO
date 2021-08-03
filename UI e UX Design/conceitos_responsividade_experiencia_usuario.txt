@@ -1,0 +1,98 @@
+**Briefing**
+-> momento em que se entende o objetivo de um projeto, fundamental para entender o motivo do trabalho e se a solução irá gerar o resultado desejado
+
+**Imersão**
+-> conhecer o problema, o contexto, o público, os stakeholders, as premissas, regras de negócio, histórico, estratégias, demandas, reclamações...
+
+**Unpack**
+-> ouvir várias informações diferentes. Literalmente abre todas as hipóteses possíveis para o projeto
+
+- Wireframes, Grids e Hierarquia
+
+-> Estrutura: como posicionar os objetos no layout
+-> Conteúdo: como serão colocados os conteúdos para ajudar na usabilidade e interatividade do usuário
+-> Hierarquia informativa: como o conteúdo será apresentado e organizado
+-> Funcionalidade: como será a usabilidade em cima da interface
+-> Grid: determinar o fluxo de leitura do usuário
+
+- Luzes, Sombras, Consistência e Padrão
+
+-> Luzes e sombras: recursos que garantem movimento, profundidade, sobreposição e constraste
+-> Consistência e padrão: projeto deve manter o mesmo tom de redação (UX Writer), padrão visual (Design System) e mesma consistência em diversos devices (UX Design)
+
+- Cores
+-> conhecer um pouco a psicologia das cores
+
+- UI Primárias
+-> Paleta primária: cores principais
+
+- UI Secundárias
+-> Paleta secundária: cores de feedback, cores primárias e suas variações e tons de cinza
+
+- Gradiente 
+-> pode ser vista como uma tentativa de aproximação e melhoria na experiência do usuário
+
+** Tipografias **
+
+-> Serifadas: apresentam pequenos traços ou prolongamentos no final das letras. Conceito de seriedade e tradicionalidade. Ex.: times new roman
+-> Sem Serifadas: não tem as linhas extras. Consideradas mais modernas e dinâmicas
+-> Cursivas: manuscritas ou caligrafia
+-> Decorativas ou fantasia: mais inusitadas do que práticas, devem ser usadas com moderação
+
+- Tamanho e peso
+-> tamanho padrão do browser 16px
+-> peso pode variar entre um valor numérico de 100 a 900
+
+** Iconografia **
+
+-> utilização de ícones 
+  - manter simples
+  - combine com palavras
+  - escolha ícones familiares
+  - utilize espaçamento
+  - consistência
+
+** Imagens **
+  - contexto relevante
+  - relevância
+
+** Guias de estilo **
+
+-> manual da marca: guia que contém todas as informações para manter a identidade visual
+
+** Responsividade **
+
+-> Facilidade e conforto de acesso
+-> Boa experiência de usado
+-> Satisfação do usuário
+-> Fidelização do usuário
+
+- Ferramentas importantes:
+-> Google
+-> Resize
+-> Window resize (extensão chrome)
+
+** Acessibilidade **
+
+-> empatia e inclusão
+
+**** dica: uxdesign.blog.br - "o que fazer" e "o que não fazer" ao projetar para Acessibilidade
+
+** Prototipagem **
+
+-> Utilidade
+-> Fidelidade do protótipo
+
+
+Dicas
+-> Medium
+  - ui-lab-school
+  - ux-strategy
+  - ideo.com
+  - material.io
+-> Youtube
+  - UX lab
+  - UX Now
+-> Livros
+  - Não me faça pensar: uma abordagem de senso comum para a usabilidade na Web
+  - Arquitetura da informação para a World Wide Web: projetando sites da Web em grande escala

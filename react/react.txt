@@ -1,0 +1,139 @@
+* História e conceitos
+
+Definição: biblioteca js para criar interfaces de usuário (não é um framework). A principal função é a criação da interface para o usuário. Linguagem declarativa (se preocupa se está exibindo ou não). Pode ser utilizado em qlqr lugar, baseado em components
+
+Criado em 2011 por Jordan Walke no Facebook, baseado no XHP, um framework para criação de HTML no PHP. Foi utilizado no mural de notícias do Facebook.
+
+- 2012: utilizado no Intagram
+- 2013: anúncio para liberação Open Source na JSConfUS
+- 2015: React Native // UWP(Universal Windows Plataform)
+
+-> Configuração
+  - react create app
+  - react scripts
+  - task runners e bundle sizers
+
+  * JSX
+
+  React não separa as tecnologias colocando marcação em arquivos separados, e sim separa conceitos e mantém o código acoplado chamando-os de components. Não é obrigatória a utilização de JSX. É uma sintax suggar para React.createElement. O browser não interpreta JSX, para isso é necessário um transpilador para que a aplicação possa entender o código. O mais utilizado é o Babel
+
+  * React-DOM 
+
+  É o que renderiza os elementos do react. Toda a renderização é feita em Nós Raíz
+
+  * Renderização
+
+  React "pensa" em como a interface deve estar a cada momento ao invés de alterá-la com o tempo, o que faz ter ganho de performance e evita uma série de erros.
+
+  * Components e Props
+
+  Tudo o que for passar em um component passa por props
+
+  * Estado e Ciclo de Vida
+
+  Nenhum componente pai ou filho devem saber se outro componente possui estado ou não. O estado é apenas local ao componente e caso seja necessário enviar algum atributo para outro, então é feito via props.
+
+  - Inicialização: props e state
+
+  - Montagem: componentWillMount -> render -> componentDidMount
+
+  - Atualização
+      -> props: componentWillReceiveProps -> shouldComponentUpdade ? componentWillUpdate -> render -> componentDidUpdate : false(não atualizado)
+      -> state: shouldComponentUpdade ? componentWillUpdate -> render -> componentDidUpdate : false(não atualizado)
+
+  - Desmontagem: componentWillUnmount
+
+  * Ecossistema
+  -> React Router;
+  -> Redux
+  -> Material UI;
+  -> Ant-Design;
+  -> Storybook;
+  -> Gatsby;
+  -> Jest;
+  -> React i18n Next
+
+  ** Webpack **
+  
+  é um module bundler(um empacotador de módulos para aplicações JS). Gerar bundler que será utilizado no HTML, ES5
+
+  Link oficial: https://webpack.js.org/
+
+  -> Suporte
+  - Fontes
+  - CSS
+  - Imagens
+  - HTML
+  - JS
+  - Plugins
+
+  ** Configuração
+  Principais conceitos:
+
+  - Entry: Utilizando o grafo, o Webpack precisa de um ponto de entrada para buscar todos os módulos e dependências
+  - Output: É para determinar quais são os bundlers que o Webpack irá emitir
+  - Loaders: É para permitir que o Webpack gerencie arquivos que não são JS
+  - Plugins: Podem ser utilizados para otimização de pacotes, minificação, injeção de scripts e muito mais
+  - Mode: Utilizados para abordagem de configuração zero. É possível configurar módulos como production, development ou none. 
+    -> Production: trás otimizações internas 
+    -> Development: é executado com três plugins: UglifyJsPlugin, ModuleConcatenationPlugin e NoEmitOnErrosPlugin
+    -> None: não passar nenhuma config
+
+Criação do arquivo webpack.config.js
+npm init
+npm i -D webpack webpack-cli // -D modo de desenvolvimento
+"build":"webpack --mode production"
+
+npm i @babel/core babel/loader @babel/preset-env @babel/preset-react --save-dev
+
+npm i reac react-dom 
+npm i -D babel-preset-react
+
+criar arquivo index.js do react
+
+npm i -D webpack-dev-server
+
+no package.json 
+"scripts": {
+  "start:dev":"webpack-dev-server"
+}
+
+* ESLint 
+
+Para manter a qualidade e o padrão de desenvolvimento.
+
+- Configuração
+
+npm i --save-dev eslint babel-eslint eslint-plugn-react eslint-watch
+
+* Conceitos aplicados aos tipos de dados e condições da biblioteca
+
+-> Renderização condicional 
+  Em react, você pode criar componentes distintos que encapsulam o comportamento que você precisa. Então, você pode renderizar apenas alguns dos elementos, dependendo do estado da sua aplicação.
+
+  - Variáveis de elementos
+  - If inline com o Operador lógico &&  - se a condição for falsa, o elemento nem chega a ser renderizado, não fica com display none
+  - If-Else inline com o operador condicional
+  - Evitando que um componente seja renderizado
+
+-> Listas e chaves
+  - Renderizando múltiplos componentes
+  - Componente de Lista Básico
+  - Chaves
+  - Extraindo componentes com chaves
+  - Chaves devem ser únicas apenas entre elementos irmãos
+
+-> Manipulação de eventos
+  Manipular eventos em elementos React é muito semelhante a manipular eventos em elementos do DOM. Existem diferenças sintáticas:
+    - Eventos em React são nomeados em camelCase ao invés de letras minúsculas
+    - Com o JSX você passa uma função como manipulador de eventos ao invés de um texto
+    - Eventos
+    - Passando argumentos para manipuladores de eventos
+
+-> Pensando do jeito React 
+  - comece com um Mock
+  - separe a UI em uma hierarquia de componentes
+  - crie uma versão estática em react
+  - identifique a representação mínima (mas completa) do state da UI
+  - identifique onde o state deve ficar
+  - adicione o fluxo de dados inverso

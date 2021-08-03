@@ -1,0 +1,108 @@
+** Web Services **
+
+-> São soluções para aplicações se comunicarem independente de linguagem, software e hardware utilizados. Pode-se dizer que são API's que se comunicam por meio de redes sobre o protocolo HTTP, sendo identificado por URI(Uniform Resource Identifier)
+
+- Vantagens
+  -> Linguagem comunicam
+  -> Integração
+  -> Reutilização de implementação
+  -> Segurança
+  -> Custos
+
+- Principais tecnologias
+  -> SOAP
+  -> REST 
+  -> XML
+  -> JSON
+
+XML (Extensible Markup Language)
+-> Não tem limitação de criação de tags, facilita separação de conteúdo. Linguagem comum para integrações entre aplicações(criado pela W3C na década de 90)
+Ex.:
+<endereco>
+  <cep>9999-99</cep>
+  <bairro>Jardim Paulista</bairro>
+  <logradouro>Av. Paulista</logradouro>
+  <cidade>São Paulo</cidade>
+  <numero>99</numero>
+</endereco>
+
+
+JSON (Javascript object Notation)
+-> Estrutura de chave e valor, assim como listas ordenadas. Utilizada para troca de mensagens entre sistemas
+{
+  "endereco":{
+    "cep": "9999-99",
+    "logradouro": "Av. Paulista",
+    "bairro": "Jardim Paulista",
+    "cidade": "São Paulo",
+    "numero": 99
+  }
+}
+
+https://www.guru99.com/comparison-between-web-services.html#:~:text=SOAP%20stands%20for%20Simple%20Object%20Access%20Protocol%20whereas%20REST%20stands,REST%20is%20an%20architectural%20pattern.&text=Comparing%20SOAP%20vs%20REST%20API,%2C%20XML%2C%20HTML%20and%20JSON
+
+SOAP(simple object access protocol)
+  -> Protocolo baseado em XML para acessar serviços web, principalmente por HTTP(pode ser usado por outros). Independe de linguagem, plataforma ou software
+
+  SOAP Envelope -> SOAP Header / SOAP Body
+
+  SOAP Envelope: usado para encapsular toda a mensagem SOAP
+  SOAP Header: elemento que possui as informações de atributos e metadados da requisição
+  SOAP Body: elemento que contém os detalhes da mensagem
+
+  SoapUI
+
+  Ex.:
+  <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+    <soap:Header/>
+    <soap:Body>
+    <m:MetodoEndereco xmlns:m="http://www.example.org/endereco">
+      <m:CEP>9999-99</m:CEP>
+      <m:Bairro>Jardim Paulista</m:Bairro>
+      <m:Logradouro>Av. Paulista</m:Logradouro>
+      <m:Cidade>São Paulo</m:Cidade>
+      <m:Numero>99</m:Numero>
+    </mEndereco>
+    </soap:Body>
+  </soap:Envelope>
+
+  WSDL(Web Services Description Language)
+  -> Usado para descrever Web Services, como um contrato de serviço. A descrição é feita em um documento XML, onde é descrito o serviço, especificações de acesso, operações e métodos
+  Ex.:
+  http://soapclient.com/xml/soapresponder.wsdl
+
+  XSD(XML Schema Definition)
+  -> é um schema no formato XML usado para definir a estrutura de dados que será validada no XML. Funciona como uma documentação de como deve ser montado o SOAP Message(XML)
+
+  REST(Representational State Transfer)
+  -> Estilo de arquitetura de software de define a implementação de serviços web. Trabalha com formatos XML, JSON e outros
+
+  - Vantagens
+    -> Permite integrações entre aplicações e também entre cliente e servidor em páginas web e aplicações;
+    -> Utiliza métodos HTTP para definir a operação que está sendo efetuada;
+    -> Arquitetura de fácil compreensão;
+
+  - Métodos
+    -> GET: solicita representação
+    -> POST: solicita criação
+    -> DELETE: solicita exclusão
+    -> PUT: solicita atualização
+
+  - Estrutura
+    Cliente -> requisição HTTP -> Servidor
+    Cliente <- Retorna um código de operação // Retorna uma mensagem <- Servidor
+
+  API(Application Programming Interface)
+  -> São conjuntos de rotinas documentadas e disponibilizadas por uma aplicação para que outras aplicações possam consumir suas funcionalidades
+
+  Código de estado(Status Code) HTTP
+  -> Usado pelo servidor para avisar o cliente sobre o etado da operação solicitada
+  
+  https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
+
+    - 1xx: Informativo;
+    - 2xx: Sucesso;
+    - 3xx: Redirecionamento;
+    - 4xx: Erro do Cliente;
+    - 5xx: Erro do Servidor
+

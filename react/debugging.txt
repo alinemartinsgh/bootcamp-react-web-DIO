@@ -1,0 +1,8 @@
+* Debugging (ou depuração)
+
+  -> Processo de encontrar e reduzir defeitos em um software
+  ddd
+  -> Ferramentas
+    - Chrome Devtools ou Mozilla Devtools
+    - Redux Devtools
+    - React Devtools

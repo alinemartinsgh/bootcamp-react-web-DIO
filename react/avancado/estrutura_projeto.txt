@@ -1,0 +1,22 @@
+https://github.com/Tautorn/advanced-reactjs-dio
+
+pasta SRC
+  - assets
+    -> img
+    -> style
+  - commons
+    -> constants
+    -> utils (somente funções ou utilitários, funções reaproveitáveis no sistema - funções de responsabilidade única)
+  - components
+    -> NomeDoComponent
+      -> teste
+    -> index.js onde importa e exporta todos os components
+  - containers
+    -> Bank
+    -> Shop
+    -> Store
+    -> User
+  - resources (tota a chamada de serviço)
+  - routes(todas as rotas)
+  App.jsx
+  Index.js

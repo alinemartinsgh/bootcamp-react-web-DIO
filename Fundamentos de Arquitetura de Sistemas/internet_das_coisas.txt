@@ -1,0 +1,85 @@
+Requisitos
+Cloud Computing
+Protocolo de comunicação de rede(TCP, TCPIP, HTTP)
+Processamento e armazenamento de dados
+
+
+** Introdução a IOT **
+Objetivos:
+  - Embutir sensores em objetos do dia-a-dia
+  - Coletar dados dos sensores
+  - Usar o dado para tomada de decisão
+
+-> Conceitos básicos
+  Things: onde se colocam os sensores para coletar dados
+    - baixo consumo de energia
+    - rede de dados limitado
+    - device resiliente
+    - segurança
+    - customização
+    - baixo custo
+  ex.: 
+  -> arduino(plataforma de prototipagem com entradas e saídas. Interface serial ou USB. Shields. Linguagem C/C++)
+  -> embarcados(MCUs) microcontrolador de chip único, sistema operacional real time, embarcado, uso industrial, médico, militar, transporte
+  -> minicomputadores(Raspbery Pi) computador completo, hardware integrado em uma única placa, roda SO linux ou windows, uso doméstico ou comercial
+
+  Cloud: onde os dados serão armazenados
+    - grande e cada vez maior número de devices conectados
+    - TBs ou PBs de informações
+    - potencial de escala global
+
+  Intelligence: processo de utilizar os dados de forma inteligente para resolver problemas e otimizar processos 
+  
+  ex.: smart building, smart home, wearebles(ex.: smart watch), agriculture, smart transportation, RFID Supply Chain, energy efficiency
+
+  * Computação Ubíqua: quando os computadores saem do nosso campo de visão, pois não conseguimos ver a tecnologia de forma tão fácil
+
+-> Desafios
+  - Privacidade e segurança
+  - Quantidade exponencial de dispositivos conectados na rede
+  - Ser capaz de processar e armazenar uma enorme quantidade de informações
+  - Gerar valor a partir dos dados coletados
+
+** Arquitetura IOT **
+Protocolo MQTT
+  - Base na pilha do TCP/IP
+  - Protocolo de mensagem assíncrona(M2M) - envia e não fica aguardando resposta
+  - Criado pela IBM para conectar sensores de pipelines de petróleo a satélites
+  - Padrão OASIS suportado pelas linguagens de programação mais populares
+
+Modelo Publish / Subscribe
+separa o consumidor do fornecedor da mensagem e o MQQT Broker(middleware) entrega a mensagem para os dispositivos que estão inscritos para receber a mensagem
+
+// flexibilidade dos tópicos
+
+protocolo // broker // user identifier // sensor // information type
+MQQT    ://  broker.io /    a6g319    /   gps   /    position
+                        (+ para todos)    
+
+-> QoS 0
+  - nível mínimo de esforço
+  - sem garantia de entrega da informação
+  - mensagem não é retransmitida
+
+-> QoS 1 (mais comum)
+  - garante que a mensagem foi entregue no mínimo uma vez ao recebedor
+  - mensagem pode ser retransmitida se não houver confirmação de entrega
+
+-> QoS 2 (pubrec/pubrel)
+  - garante que a mensagem foi entregue no mínimo uma vez ao recebedor
+  - mensagem pode ser retransmitida se não houver confirmação de entrega
+
+Broker -> Worker(aplicação/código/regra de negócio) -> Data store(relacional DB / Document DB - lida melhor com volume): Armazena cada posição geográfica recebida identificando o usuário, data e hora permitindo reconstruir rotas inteiras
+Broker -> Worker(aplicação/código/regra de negócio) -> Cache -> Analytics: Apresenta em tempo real a última posição de cada usuário no mapa e a quantidade de usuários por hora
+
+** Estudo de caso **
+
+GPS -> BROKER -> WORKER -> Data store
+App Android -> Eclipse Mosquitto -> Node.js -> Banco de dados MySQL (prova de conceito)
+GPS Embarcado -> HiveMQ -> Akka Scala JVM -> Banco de dados NoSQL MongoDB (mínimo produto viável)
+GPS Embarcado -> AWS IoT Core -> AWS Kinesis Firehouse - AWS S3(solução)
+
+
+GPS -> BROKER -> WORKER -> Cache -> Analytics
+GPS Embarcado -> AWS IoT Core -> AWS Data Stream -> AWS Lambda(função que pega os dados e alimenta a área de cache) -> AWS ElasticCache Redis
+

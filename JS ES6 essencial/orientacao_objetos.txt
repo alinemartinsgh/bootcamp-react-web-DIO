@@ -1,0 +1,40 @@
+** HERANÇA **
+  -> baseada em protótipos
+  -> prototype: armazena as definições do objeto
+  -> __proto__: aponta para o prototype do tipo que foi criado
+  -> constructor: é quem cria o prototype
+
+  -> __proto__ -> prototype -> constructor
+
+'use strict';
+
+const myText = 'Hello prototype!';  
+
+é igual a 
+
+const myText = String('Hello prototype!'); -> usa a função construtora String para criar uma variável
+
+myText.constructor -> String
+myText.__proto__ -> String.prototype
+
+myText.split('')
+
+console.log(myText.__proto__.split === String.prototype.split) // retorna true
+console.log(myText.constructor === String) //retorna true
+
+- Operador NEW
+
+new Foo(...)
+
+-> Um novo objeto é criado, herdando Foo.prototype
+-> A função construtora Foo é uma chamada com argumentos especificados e com o 'this' vinculado ao novo objeto criado
+-> Caso a função construtora tenha um retorno explícito, será respeitando o seu 'return'. Senão, será retornando o objeto criado no passo 1
+
+** Modificadores de acesso **
+-> define o que é privado do que é público dentro de uma classe
+
+** Encapsulamento **
+-> serve para ocultar detalhes do funcionamento interno
+
+** Static **
+-> permite acessar métodos/atributos sem instanciar

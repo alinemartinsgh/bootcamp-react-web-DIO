@@ -1,0 +1,71 @@
+**Proxy** 
+https://www.welivesecurity.com/br/2019/12/20/o-que-e-um-proxy-e-para-que-serve/
+
+-> Os servidores proxy são normalmente utilizados como ponte entre origem e destino de uma requisição.
+
+- Funções
+  -> Controle de acesso: É possivel para os adminsitradores do servidor proxy permitir que determinados usuários tenham ou não acesso a Internet através de restrições aplicadas ao login do próprio usuário ou ao endereços IP, provendo ao ambiente uma camada a mais de proteção.
+  -> Filtro de conteúdo: Estando no meio do caminho, o servidor também permite que determinados sites sejam ou não acessados. Dentre as regras que podem ser aplicadas estão as destinadas ao bloqueio de sites específicos, podendo chegar ao bloqueio de categorias inteiras.
+  -> Cache: Outro uso muito comum para Web Proxies é fazer com que eles exerçam a função de cache. Isso faz com que, após um acesso a uma página, o proxy armazene o conteúdo da página em seu sistema. Após isso, as demais requisições à esta mesma página não precisarão sair para a Internet, pois o conteúdo já está armazenado na memória do proxy.
+
+**Docker**
+https://www.meupositivo.com.br/panoramapositivo/container-docker/
+
+https://github.com/jeffhsta/fundamentos_arquitetura
+
+- Tipos de Arquitetura
+
+  ** Monolito ** 
+
+  -> Uma única aplicação. Aplicações (web/mobile) conversam com protocolo HTTP(proxy) e ele vai redirecionar as aplicações(instâncias) que tem acesso ao banco de dados(ou mais bancos).
+
+  Prós
+    - Baixa complexidade
+    - Monitoramento simplificado
+
+  Contras
+    - Stack única
+    - Compartilhamento de recursos
+    - Acoplamento
+    - Mais complexo a escalabilidade
+
+
+  ** Microsserviços **
+
+    -> Possibilidade 1: Clientes(web/mobile) por proxy/protocolo HTTP e redirecionam de acordo com o serviço solicitado(serviços estão relacionados). Não está preso a uma única tecnologia. Separado com um serviço para cada operação. Separado em nodos. Pode ficar muito complexo dependento da aplicação.
+
+    Prós
+      - Stack dinâmica
+      - Simples escalabilidade
+
+    Contras
+      - Acoplamento
+      - Monitoramento mais complexo
+      - Provisionamento mais complexo
+   
+   
+    -> Possibilidade 2: Utiliza um message broker ao invés do relacionamento direto entre os serviços
+
+    Prós
+      - Stack dinâmica
+      - Simples escalabilidade
+      - Desacoplamento
+    
+    Contras
+      - Monitoramento mais complexo
+      - Provisionamento mais complexo
+      - Gerenciamento de erros mais complexo (solução "Dead Letter queue" - criar uma fila separada e tenta reprocessar a mensagem)
+
+
+    -> Possibilidade 3: com gerenciamento de pipeline, a requisição não é feita diretamente para o serviço e sim para um gerenciador. Pode ser os serviços/banco de dados totalmente desacoplados.
+
+    Prós
+      - Stack Dinâmica
+      - Simples escalabilidade
+      - Desacoplamento
+      - Menor complexidade
+    
+    Contras
+      - Provisionamento mais complexo
+      - Plataforma inteira depende do gerenciador de pipeline
+      - Gerenciamento de erros mais complexo (talvez precise de sistemas de rollback, mas pode tentar usar "Dead Letter queue")

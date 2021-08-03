@@ -1,0 +1,75 @@
+Vantagens
+-> Controle de versão;
+-> Armazenamento em nuvem;
+-> Trabalho em equipe;
+-> Melhorar seu código;
+-> Reconhecimento;
+
+-> Windows
+Mudar de pastas: cd
+Listar pastas: dir
+Criar pastas/arquivos: mkdir
+Deletar pastas/arquivos: del / rmdir
+printa o valor que digitar no terminar: echo (se adicionar > logo após e indicar um arquivo, o que foi digitado será salvo lá)
+
+-> Unix(derivados do linux/apple)
+Mudar de pastas: cd
+Listar pastas: ls
+Criar pastas/arquivos: mkdir
+Deletar pastas/arquivos: rm -rf
+printa o valor que digitar no terminar: echo (se adicionar > logo após e indicar um arquivo, o que foi digitado será salvo lá)
+
+
+// Como funciona o Git
+
+-> SHA1(Secure Hash Algorithm - algoritmo de hash seguro): conjunto de funções criptográficas projetadas pela NSA. Gera um conjunto de caracteres únicos de 40 dígitos;
+
+- Objetos fundamentais
+  -> Blobs: objeto que armazena conteúdo, tamanho e hash gerado(SHA1 do arquivo);
+  -> Trees: também contém metadados, monta a estrutura de onde estão os arquivos (aponta para os Blobs ou outras árvores);
+  -> Commits: junta tudo e da sentido(aponta para a árvore, arquivo, autor). Leva também uma mensagem, data/hora. Também possui um SHA1;
+
+- Iniciar Git
+  -> git init
+
+- Iniciar Versionamento
+  -> git add .
+
+- Criar um commit
+  -> git commit -m "digite a mensagem"
+
+- Verificar status
+  -> git status
+
+  Markdown (arquivos .md) - guia básico: https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open
+  # Titulo nivel 1
+  ## Titulo nivel 2
+  ### Titulo nivel 3
+  #### Titulo nivel 4
+  ##### Titulo nivel 5
+  ###### Titulo nivel 6
+
+-> Arquivos tracked: arquivos que o git já tem conhecimento;
+-> Arquivos untracked: arquivos que o git ainda não tem conehcimento;
+  - Unmodified: arquivo ainda não modificado;
+  - Modified: arquivo que já foi modificado;
+  - Staged: arquivos se preparando para outro tipo de agrupamento(commit);
+
+Remote repository (Remote repository) x Ambiente de desenvolvimento (Work repository - Staging Area - Local repository)
+
+…or create a new repository on the command line
+echo "# starWarsApp" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin **endereço do repositório**
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin **endereço do repositório**
+git branch -M main
+git push -u origin main
+
+
+git clone **endereço do repositório**
